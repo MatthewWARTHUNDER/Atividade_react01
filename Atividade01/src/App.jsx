@@ -8,10 +8,19 @@ function App() {
   const [text, setText] = useState("")
   const [titulo, setTitulo] = useState("")
   const [like, setLike] = useState()
+  const [textcarac, setTextcarac] = useState('')
+  const contCaracter = (event) => {
+    setTextcarac(event.target.value);
+  }
 
   const Change = (Event) => {
     setTitulo(Event.target.value);
-  };
+  }
+
+  const [name, setName] = useState("MeteuWarThunder")
+  const [idade, setIdade] = useState(17)
+  const [email, setEmail] = useState("MeteuGaijinOficial@gmail.com")
+  
 
   return (
     <>
@@ -64,11 +73,39 @@ function App() {
 
 
 
+     
+      <div className='Texto'>
+        <textarea name="" 
+        cols="50" 
+        rows="10"
+        placeholder="Digite um texto:"
+        value={textcarac}
+        onChange={contCaracter}
+        style={{ resize: 'none' }}>
+        </textarea>
+      </div>
 
+      <div style={{ marginTop: '10px' }}>
+        <strong>Quantidade de caracteres: {textcarac.length}</strong>
+      </div>
+      
+
+
+
+
+      <div>
+      <input value={name} onChange={e => setName(e.target.value)} placeholder='informe seu nome' /><br></br>
+        <input value={idade} onChange={e => setIdade(e.target.value)} placeholder='informe sua idade' /><br></br>
+        <input value={email} onChange={e => setEmail(e.target.value)} placeholder='informe seu email' /><br></br>
+        
+        <button onClick={() => setIdade(age + 1)}>
+          
+        </button>
+      </div>
     </>
 
 
-    
+
   )
 }
 
